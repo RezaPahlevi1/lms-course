@@ -1,0 +1,304 @@
+{
+  "instructors": [
+    {
+      "id": "ins_01",
+      "name": "Dr. Siti Aisyah",
+      "title": "Senior Lecturer - Computer Science",
+      "bio": "Pengajar UX & Frontend dengan pengalaman 10+ tahun.",
+      "avatar": "https://example.com/avatars/siti.jpg",
+      "social": {
+        "twitter": "siti_ux",
+        "linkedin": "siti-aisyah"
+      }
+    },
+    {
+      "id": "ins_02",
+      "name": "Budi Prakoso",
+      "title": "Fullstack Engineer",
+      "bio": "Spesialis React & Node.js, suka membangun aplikasi produk nyata.",
+      "avatar": "https://example.com/avatars/budi.jpg",
+      "social": {
+        "twitter": "budiprakoso",
+        "linkedin": "budi-prakoso"
+      }
+    },
+    {
+      "id": "ins_03",
+      "name": "Alya Nur",
+      "title": "Data Scientist",
+      "bio": "Penggemar data visualisasi, mengajar cara membuat dashboard interaktif.",
+      "avatar": "https://example.com/avatars/alya.jpg",
+      "social": {
+        "twitter": "alya_data",
+        "linkedin": "alya-nur"
+      }
+    }
+  ],
+  "courses": [
+    {
+      "id": "course_01",
+      "title": "React untuk Pemula — Dari Dasar sampai Project",
+      "slug": "react-untuk-pemula",
+      "short_description": "Pelajari dasar React, component, state, props, routing, hingga deploy sederhana.",
+      "description": "<p>Course ini mengajarkan konsep fundamental React melalui project mini: TODO app & mini LMS.</p><ul><li>React components</li><li>State management</li><li>Routing</li><li>Fetch API & testing</li></ul>",
+      "category": "Frontend",
+      "level": "Beginner",
+      "language": "id",
+      "duration_hours": 10,
+      "thumbnail": "https://example.com/covers/react-beginner.jpg",
+      "instructorId": "ins_02",
+      "instructor": {
+        "id": "ins_02",
+        "name": "Budi Prakoso",
+        "title": "Fullstack Engineer",
+        "avatar": "https://example.com/avatars/budi.jpg"
+      },
+      "rating": 4.7,
+      "enroll_count": 1250,
+      "price": 0,
+      "tags": ["react", "frontend", "v2"],
+      "estimated_finish_time_days": 7,
+      "created_at": "2025-06-01T09:00:00Z",
+      "syllabus": [
+        {
+          "week": 1,
+          "title": "Pengenalan React & Setup",
+          "items": [
+            "JSX & Component",
+            "Vite + Tailwind setup",
+            "First project: Todo App"
+          ]
+        },
+        {
+          "week": 2,
+          "title": "State Management & Routing",
+          "items": [
+            "State & Props",
+            "React Router dasar",
+            "Project: Multi-page site"
+          ]
+        },
+        {
+          "week": 3,
+          "title": "Fetch, Forms, & Deployment",
+          "items": [
+            "Fetch API & React Query",
+            "Form validation",
+            "Deploy to Vercel"
+          ]
+        }
+      ],
+      "learning_outcomes": [
+        "Mampu membuat aplikasi React dasar",
+        "Mengerti cara konsumsi API dan menampilkan data",
+        "Mempunyai project kecil untuk portofolio"
+      ],
+      "requirements": ["Basic HTML & JavaScript"]
+    },
+    {
+      "id": "course_02",
+      "title": "UI/UX Dasar untuk Developer",
+      "slug": "uiux-untuk-developer",
+      "short_description": "Konsep UI/UX praktis untuk developer: wireframe, prototyping, dan handoff.",
+      "category": "Design",
+      "level": "Beginner",
+      "language": "id",
+      "duration_hours": 8,
+      "thumbnail": "https://example.com/covers/uiux.jpg",
+      "instructorId": "ins_01",
+      "rating": 4.8,
+      "enroll_count": 840,
+      "price": 150000,
+      "tags": ["uiux", "design", "product"],
+      "estimated_finish_time_days": 5,
+      "created_at": "2025-05-10T10:00:00Z"
+    },
+    {
+      "id": "course_03",
+      "title": "Advanced React Performance & Testing",
+      "slug": "react-performance-testing",
+      "short_description": "Optimisasi performa React, code-splitting, memoization, dan testing lengkap.",
+      "category": "Frontend",
+      "level": "Advanced",
+      "language": "en",
+      "duration_hours": 14,
+      "thumbnail": "https://example.com/covers/react-advanced.jpg",
+      "instructorId": "ins_02",
+      "rating": 4.6,
+      "enroll_count": 420,
+      "price": 300000,
+      "tags": ["react", "performance", "testing"],
+      "estimated_finish_time_days": 14,
+      "created_at": "2025-04-20T12:00:00Z"
+    },
+    {
+      "id": "course_04",
+      "title": "Data Visualization dengan D3 & React",
+      "slug": "data-viz-d3-react",
+      "short_description": "Buat visualisasi interaktif menggunakan D3 di React environment.",
+      "category": "Data",
+      "level": "Intermediate",
+      "language": "en",
+      "duration_hours": 12,
+      "thumbnail": "https://example.com/covers/data-viz.jpg",
+      "instructorId": "ins_03",
+      "rating": 4.5,
+      "enroll_count": 310,
+      "price": 250000,
+      "tags": ["d3", "react", "dataviz"],
+      "estimated_finish_time_days": 10,
+      "created_at": "2025-03-15T08:30:00Z"
+    },
+    {
+      "id": "course_05",
+      "title": "Membangun REST API dengan Node.js",
+      "slug": "rest-api-nodejs",
+      "short_description": "Backend dasar: express, routing, auth, dan deploy sederhana (untuk fullstack practice).",
+      "category": "Backend",
+      "level": "Intermediate",
+      "language": "id",
+      "duration_hours": 9,
+      "thumbnail": "https://example.com/covers/nodejs.jpg",
+      "instructorId": "ins_02",
+      "rating": 4.4,
+      "enroll_count": 560,
+      "price": 180000,
+      "tags": ["nodejs", "api", "backend"],
+      "estimated_finish_time_days": 7,
+      "created_at": "2025-02-01T07:00:00Z"
+    }
+  ],
+  "modules": [
+    {
+      "id": "mod_01",
+      "courseId": "course_01",
+      "title": "Intro to React & JSX",
+      "position": 1,
+      "type": "video",
+      "duration_minutes": 12,
+      "content": {
+        "video_url": "https://media.example.com/react_intro.mp4",
+        "transcript": "Welcome to React..."
+      },
+      "resources": [
+        {
+          "type": "link",
+          "label": "Docs React",
+          "url": "https://reactjs.org"
+        }
+      ],
+      "quizId": "quiz_01"
+    },
+    {
+      "id": "mod_02",
+      "courseId": "course_01",
+      "title": "Components & Props",
+      "position": 2,
+      "type": "article",
+      "duration_minutes": 18,
+      "content": {
+        "html": "<h2>Components</h2><p>Components adalah...</p>"
+      },
+      "resources": [],
+      "quizId": null
+    },
+    {
+      "id": "mod_03",
+      "courseId": "course_01",
+      "title": "State, Events & Forms",
+      "position": 3,
+      "type": "video",
+      "duration_minutes": 24,
+      "content": {
+        "video_url": "https://media.example.com/react_state.mp4"
+      },
+      "resources": [
+        {
+          "type": "code",
+          "label": "Repo Starter",
+          "url": "https://github.com/your/repo-starter"
+        }
+      ],
+      "quizId": "quiz_02"
+    },
+    {
+      "id": "mod_04",
+      "courseId": "course_01",
+      "title": "Project: Mini LMS (Hands-on)",
+      "position": 4,
+      "type": "project",
+      "duration_minutes": 180,
+      "content": {
+        "instructions": "Buat mini LMS dengan fitur course listing, course detail, dan module player."
+      },
+      "resources": [],
+      "quizId": null
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "quiz_01",
+      "moduleId": "mod_01",
+      "title": "Quiz Intro React",
+      "questions": [
+        {
+          "id": "q_01",
+          "type": "mcq",
+          "question": "Apa singkatan JSX?",
+          "options": ["JavaScript XML", "Java Syntax eXtension", "JS eXtended"],
+          "answer": 0,
+          "explanation": "JSX adalah sintaks yang mirip HTML untuk menulis komponen React."
+        }
+      ],
+      "duration_minutes": 5,
+      "passing_score": 70
+    },
+    {
+      "id": "quiz_02",
+      "moduleId": "mod_03",
+      "title": "State & Forms Quiz",
+      "questions": [
+        {
+          "id": "q_02",
+          "type": "mcq",
+          "question": "State di React direkomendasikan ditempatkan di mana?",
+          "options": [
+            "Di DOM",
+            "Di variable global tanpa React",
+            "Di dalam component/state manager"
+          ],
+          "answer": 2,
+          "explanation": "State dikelola oleh React (component state atau external state manager)."
+        }
+      ],
+      "duration_minutes": 7,
+      "passing_score": 70
+    }
+  ],
+  "users": [
+    {
+      "id": "user_demo",
+      "name": "Miftakhul Hudha",
+      "email": "miftakhul@example.com",
+      "role": "student",
+      "avatar": "https://example.com/avatars/miftakhul.jpg"
+    },
+    {
+      "id": "user_instructor",
+      "name": "Instructor Demo",
+      "email": "instr@example.com",
+      "role": "instructor",
+      "avatar": "https://example.com/avatars/instructor.jpg"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "enr_01",
+      "userId": "user_demo",
+      "courseId": "course_01",
+      "enrolled_at": "2025-09-20T08:00:00Z",
+      "progress_percent": 25,
+      "completed": false
+    }
+  ]
+}
