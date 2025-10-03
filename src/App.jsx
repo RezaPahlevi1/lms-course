@@ -1,13 +1,16 @@
 import { useState } from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import CourseList from "./pages/CourseList";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <div>
-        <h1 className="p-10 text-4xl">THIS IS LMS COURSE</h1>
-        <p>TESTING</p>
-      </div>
+      <Navbar />
+      <main className="p-6">
+        <Outlet />
+      </main>
     </>
   );
 }
