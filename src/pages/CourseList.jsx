@@ -22,7 +22,7 @@ export default function CourseList() {
     <div>
       <Hero />
       <div className="flex flex-col p-10 gap-5 text-2xl">
-        <h1>Resume Course:</h1>
+        <h1>Courses:</h1>
 
         <div className="grid grid-cols-3 gap-5">
           {courses.map((course) => {
@@ -37,13 +37,6 @@ export default function CourseList() {
               />
             );
           })}
-        </div>
-
-        <h1>Courses:</h1>
-        <div className="flex flex-row gap-5">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
         </div>
       </div>
     </div>
