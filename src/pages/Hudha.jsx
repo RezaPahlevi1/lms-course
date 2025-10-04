@@ -1,4 +1,5 @@
 import { Hero } from "../components/Hero";
+import { ProgressBar } from "../components/ProgressBar";
 import React, { useEffect, useState } from "react";
 
 export default function Hudha() {
@@ -18,8 +19,8 @@ export default function Hudha() {
   return (
     <div>
       <Hero />
-      <div className="max-w-6xl mx-auto p-6">
-        <h1 className="text-2xl font-bold mb-4">Course Result:</h1>
+      <div className="max-w-8xl mx-auto p-20">
+        <h1 className="text-2xl font-medium mb-4">Course Result:</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {courses.map((course) => {
@@ -35,6 +36,7 @@ export default function Hudha() {
             );
           })}
         </div>
+        <Pagination />
       </div>
     </div>
   );
@@ -43,59 +45,67 @@ export default function Hudha() {
 // --- Course Card ---
 export function CourseCard({ course, instructor }) {
   return (
-    <div className="border rounded-lg p-4 shadow-sm hover:shadow-md transition">
-      <div className="text-sm text-gray-500">{course.category}</div>
-      <h3 className="font-semibold text-lg">{course.title}</h3>
-      <div className="text-sm text-gray-600">
-        By: {instructor ? instructor.name : "unknown"}
-      </div>
+    <div className="border cursor-pointer border-gray-500/50 rounded-lg p-4 shadow-sm hover:shadow-md transition">
+      <div className="flex gap-4">
+        <div className="w-28 h-28 bg-gray-200 rounded" />
 
-      <p className="text-sm text-gray-500">{course.duration_hours}</p>
+        <div className="flex-1">
+          <div className="text-sm text-gray-500">{course.category}</div>
+          <h4 className="font-semibold text-lg">{course.title}</h4>
 
-      <div className="mt-3">
-        <div className="w-full bg-gray-200 rounded-full h-2.5">
-          <div className="bg-green-500 h-2.5 rounded-full" />
+          <div className="text-sm text-gray-600">
+            By: {instructor ? instructor.name : "unknown"}
+          </div>
+
+          <div className="text-sm text-gray-600 mt-2">
+            About: {course.duration_hours} Hours
+          </div>
+
+          <div className="mt-3">
+            <div className="text-xs text-gray-500">In progress:</div>
+            <ProgressBar />
+            <div className="text-sm text-green-600 mt-1">69%</div>
+          </div>
         </div>
-        <p className="text-xs text-gray-600 mt-1"></p>
       </div>
     </div>
   );
 }
 
 // --- Pagination ---
-// function Pagination({ page = 1, total = 10, onPageChange = () => {} }) {
-//   const pages = [];
-//   for (let i = 1; i <= Math.min(total, 10); i++) pages.push(i);
+function Pagination({ page = 1, total = 10, onPageChange = () => {} }) {
+  const pages = [];
+  for (let i = 1; i <= Math.min(total, 10); i++) pages.push(i);
 
-//   return (
-//     <div className="flex justify-center mt-8">
-//       <nav className="inline-flex items-center gap-2">
-//         <button
-//           className="px-3 py-1 bg-gray-800 text-white rounded"
-//           onClick={() => onPageChange(page - 1)}
-//           disabled={page === 1}
-//         >
-//           ◀
-//         </button>
-//         {pages.map((p) => (
-//           <button
-//             key={p}
-//             className={`px-3 py-1 rounded border ${
-//               p === page ? "bg-gray-800 text-white" : "bg-white text-gray-700"
-//             }`}
-//             onClick={() => onPageChange(p)}
-//           >
-//             {p}
-//           </button>
-//         ))}
-//         <button
-//           className="px-3 py-1 bg-gray-800 text-white rounded"
-//           onClick={() => onPageChange(page + 1)}
-//           disabled={page === total}
-//         >
-//           ▶
-//         </button>
-//       </nav>
-//     </div>
-//   );
-// }
+  return (
+    <div className="flex justify-center mt-8">
+      <nav className="inline-flex items-center gap-2">
+        <button
+          className="px-3 py-1 bg-gray-800 text-white rounded"
+          onClick={() => onPageChange(page - 1)}
+          disabled={page === 1}
+        >
+          ◀
+        </button>
+        {pages.map((p) => (
+          <button
+            key={p}
+            className={`px-3 py-1 rounded border ${
+              p === page ? "bg-gray-800 text-white" : "bg-white text-gray-700"
+            }`}
+            onClick={() => onPageChange(p)}
+          >
+            {p}
+          </button>
+        ))}
+        <button
+          className="px-3 py-1 bg-gray-800 text-white rounded"
+          onClick={() => onPageChange(page + 1)}
+          disabled={page === total}
+        >
+          ▶
+        </button>
+      </nav>
+    </div>
+  );
+}
