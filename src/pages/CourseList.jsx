@@ -1,5 +1,10 @@
 import React from "react";
+import { Hero } from "../components/Hero";
 
 export default function CourseList() {
-  return <div>Course List</div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }

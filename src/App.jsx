@@ -8,12 +8,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="p-6">
+      <main className="">
         <Outlet />
       </main>
-
-      {/* Testing Huda */}
-      <Hudha />
     </>
   );
 }
