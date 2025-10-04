@@ -22,19 +22,21 @@ export default function CourseList() {
     <div>
       <Hero />
       <div className="flex flex-col p-10 gap-5 text-2xl">
-        <h1>Resume Course:</h1>
-
-        <div className="flex flex-row gap-5">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-        </div>
-
         <h1>Courses:</h1>
-        <div className="flex flex-row gap-5">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+
+        <div className="grid grid-cols-3 gap-5">
+          {courses.map((course) => {
+            const instructor = instructors.find(
+              (ins) => ins.id === course.instructorId
+            );
+            return (
+              <CourseCard
+                key={course.id}
+                course={course}
+                instructor={instructor}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
