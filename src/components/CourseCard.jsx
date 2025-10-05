@@ -21,6 +21,8 @@ export function CourseCard({ course, instructor }) {
             By: {instructor ? instructor.name : "unknown"}
           </div>
 
+          <div className="text-sm text-gray-600">Level: {course.level}</div>
+
           <div className="text-sm text-gray-600 mt-2">
             About: {course.duration_hours} Hours
           </div>

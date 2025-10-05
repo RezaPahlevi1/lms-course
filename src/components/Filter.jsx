@@ -1,20 +1,25 @@
-export function Filter({ label }) {
+import React from "react";
+
+export function Filter({ label, value, options = [], onChange = () => {} }) {
   return (
-    <button className="flex items-center gap-2 bg-transparent text-white/90 hover:text-white">
-      <span>{label}</span>
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
+    <div className="">
+      <label className="block text-l mb-1 text-white/90">{label}</label>
+      <select
+        className="bg-white w-full px-3 py-2 rounded text-gray-700"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
       >
-        <path
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M19 9l-7 7-7-7"
-        />
-      </svg>
-    </button>
+        <option value="">All</option>
+        {options.map((opt, i) => {
+          const optionValue = typeof opt === "string" ? opt : opt.value;
+          const optionLabel = typeof opt === "string" ? opt : opt.label;
+          return (
+            <option key={i} value={optionValue}>
+              {optionLabel}
+            </option>
+          );
+        })}
+      </select>
+    </div>
   );
 }
