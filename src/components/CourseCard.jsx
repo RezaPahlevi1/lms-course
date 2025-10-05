@@ -1,10 +1,15 @@
 import { ProgressBar } from "./ProgressBar";
+import { useNavigate } from "react-router-dom";
 
 // --- Course Card ---
 export function CourseCard({ course, instructor }) {
+  const navigate = useNavigate();
   if (!course) return null;
   return (
-    <article className="border-2 cursor-pointer border-gray-500/50 rounded p-4 shadow-sm bg-white">
+    <article
+      onClick={() => navigate(`/courses/${course.id}`)}
+      className="border-2 cursor-pointer border-gray-500/50 rounded p-4 shadow-sm bg-white"
+    >
       <div className="flex gap-4">
         <div className="w-28 h-28 bg-gray-200 rounded" />
 
