@@ -1,67 +1,92 @@
+import { useEffect, useState } from "react";
+
 function Rehan() {
+  const [modules, setModules] = useState([]);
+  const [activeModule, setActiveModule] = useState(null);
+  const activeCourseId = "course_01"; // course aktif sekarang
+
+  useEffect(() => {
+    fetch("/db.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const courseModules = data.modules.filter((module) => module.courseId === activeCourseId).sort((a, b) => a.position - b.position);
+        setModules(courseModules);
+        setActiveModule(courseModules[0]);
+      })
+      .catch((err) => console.error("Failed to load db.json:", err));
+  }, []);
+
   return (
     <div className="flex flex-row">
-      <Sidebar />
-      <CourseContent />
+      <Sidebar modules={modules} activeModule={activeModule} setActiveModule={setActiveModule} />
+      <CourseContent activeModule={activeModule} setActiveModule={setActiveModule} modules={modules} />
     </div>
   );
 }
 
-function Sidebar() {
+function Sidebar({ modules, setActiveModule, activeModule }) {
   return (
-    <div className="bg-[#293352] text-white h-screen w-screen text-center p-5">
+    <div className="bg-[#293352] text-white h-screen w-128 p-5">
       <h1>Introduction to React JS</h1>
-      <SidebarSection />
-      <SidebarSection />
+      <SidebarSection modules={modules} setActiveModule={setActiveModule} activeModule={activeModule} />
     </div>
   );
 }
 
-function SidebarSection() {
+function SidebarSection({ modules, setActiveModule, activeModule }) {
   return (
     <div className="text-justify p-10 flex flex-col w-full">
       <h2>CONTENT OVERVIEW</h2>
-      <label className="flex justify-between">
-        🌇 Welcome!
-        <input type="checkbox" />
-      </label>{" "}
-      {/* nanti diisi mapping dari data*/}
-      <label className="flex justify-between">
-        👌 Introduction
-        <input type="checkbox" />
-      </label>
-      <label className="flex justify-between">
-        🐟 What will we learn
-        <input type="checkbox" />
-      </label>
-      {/* <ul>
-        MODULE 1: WHAT IS REACT JS
-        <li>🪱 What is React?</li>
-        <li>🤑 Useful Source</li>
-        <li>💰 Documentation</li>
-        <li>💼 Setting Up</li>
-        <li>📘Let's Go!</li>
-        <li>👯Lorem ipsum</li>
-      </ul> */}
+      <ul>
+        {modules &&
+          modules.map((mod) => (
+            <li key={mod.id} onClick={() => setActiveModule(mod)} className={`p-2 rounded ${activeModule?.id === mod.id ? "bg-[#A51C30]" : "hover:bg-[#3a4662]"}`}>
+              {mod.title}
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
 
-function CourseContent() {
+function CourseContent({ activeModule, setActiveModule, modules }) {
+  if (!activeModule) return <p>Loading...</p>; // handle saat module belum terisi
+
+  const currentIndex = modules.findIndex((m) => m.id === activeModule.id);
+
+  const handleNext = () => {
+    if (currentIndex < modules.length - 1) {
+      setActiveModule(modules[currentIndex + 1]);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex > 0) {
+      setActiveModule(modules[currentIndex - 1]);
+    }
+  };
+
+  console.log(modules.length);
+
   return (
     <div className="p-15">
       <div className="flex justify-between mb-15">
         <p>Lesson 69 of 420</p>
-        <button>EXIT COURSE</button>
+        <button className="bg-[#A51C30] text-white rounded p-2">EXIT COURSE</button>
       </div>
-      <div className="bg-[#293352] text-white p-15">
-        <h1 className="text-center mb-20">Welcome!</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, aliquid ratione? Provident blanditiis quibusdam quo sequi, ipsam excepturi amet vel nemo illum explicabo sed expedita voluptatum impedit autem laborum quis facere
-          doloribus deleniti, quae reprehenderit reiciendis. Nam consequatur ipsum eveniet deleniti ut saepe laudantium fuga dicta illum, voluptate sequi obcaecati distinctio ullam expedita iure eius explicabo labore error nemo. Adipisci
-          laborum maiores quo inventore similique? Nemo aperiam aspernatur vel nihil ipsam esse recusandae, praesentium mollitia necessitatibus itaque quia doloribus saepe omnis neque. Magni sed commodi debitis aliquam dolorum nihil
-          repellendus expedita dignissimos! Nihil voluptatem voluptate esse! Laboriosam adipisci assumenda vel quod beatae nobis commodi temporibus veniam.
-        </p>
+      <div className="bg-[#293352] text-white p-15 rounded-md w-350">
+        <h1 className="text-center mb-20">{activeModule.title}</h1>
+        {activeModule.type === "video" && <video src={activeModule.content.video_url} controls className="w-full mt-5" />}
+        {activeModule.type === "article" && <div dangerouslySetInnerHTML={{ __html: activeModule.content.html }} />}
+        {activeModule.type === "project" && <p>{activeModule.content.instructions}</p>}
+      </div>
+      <div className="flex justify-between mt-15">
+        <button className="bg-[#A51C30] text-white rounded p-2" onClick={handlePrevious}>
+          Previous
+        </button>
+        <button className="bg-[#A51C30] text-white rounded p-2" onClick={handleNext}>
+          Next
+        </button>
       </div>
     </div>
   );
