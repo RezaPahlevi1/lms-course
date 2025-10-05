@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Hero } from "../components/Hero";
 import { CourseCard } from "../components/CourseCard";
+import { SearchCard } from "../components/SearchCard";
 
 export default function CourseList() {
   const [courses, setCourses] = useState([]);
@@ -20,7 +21,9 @@ export default function CourseList() {
 
   return (
     <div>
-      <Hero />
+      <Hero>
+        <SearchCard />
+      </Hero>
       <div className="flex flex-col p-10 gap-5 text-2xl">
         <h1>Courses:</h1>
 
