@@ -8,7 +8,11 @@ import CourseModules from "./pages/CourseModules";
 import Instructors from "./pages/Instructors";
 import Rehan from "./pages/Rehan";
 import Reza from "./pages/Reza";
-import Hudha from "./pages/Hudha";
+
+// Hudha Learning Import //
+import HudhaCourseList from "./hudha-learning/pages/CourseList";
+import HudhaCourseDetail from "./hudha-learning/pages/CourseDetail";
+import HudhaCourseModules from "./hudha-learning/pages/CourseModules";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -21,7 +25,20 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="modules/" element={<CourseModules />} />
           <Route path="rehan/" element={<Rehan />} />
           <Route path="reza/" element={<Reza />} />
-          <Route path="hudha/" element={<Hudha />} />
+
+          {/* Hudha Learning Route */}
+          <Route
+            path="hudha-learning/course-list"
+            element={<HudhaCourseList />}
+          />
+          <Route
+            path="hudha-learning/course-detail"
+            element={<HudhaCourseDetail />}
+          />
+          <Route
+            path="hudha-learning/course-modules"
+            element={<HudhaCourseModules />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>
