@@ -8,6 +8,7 @@ import CourseModules from "./pages/CourseModules";
 import Instructors from "./pages/Instructors";
 import Rehan from "./pages/Rehan";
 import Reza from "./pages/Reza";
+import Hudha from "./pages/Hudha";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="modules/" element={<CourseModules />} />
           <Route path="rehan/" element={<Rehan />} />
           <Route path="reza/" element={<Reza />} />
+          <Route path="hudha/" element={<Hudha />} />
         </Route>
       </Routes>
     </BrowserRouter>
