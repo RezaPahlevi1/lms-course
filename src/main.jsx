@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { DataProvider } from "./context/DataContext";
 import App from "./App";
 import CourseList from "./pages/CourseList";
 import CourseDetail from "./pages/CourseDetail";
@@ -12,18 +13,20 @@ import Hudha from "./pages/Hudha";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<CourseList />} />
-          <Route path="courses/:id" element={<CourseDetail />} />
-          <Route path="instructors/" element={<Instructors />} />
-          <Route path="modules/" element={<CourseModules />} />
-          <Route path="rehan/" element={<Rehan />} />
-          <Route path="reza/" element={<Reza />} />
-          <Route path="hudha/" element={<Hudha />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <DataProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<CourseList />} />
+            <Route path="courses/:id" element={<CourseDetail />} />
+            <Route path="instructors/" element={<Instructors />} />
+            <Route path="modules/" element={<CourseModules />} />
+            <Route path="rehan/" element={<Rehan />} />
+            <Route path="reza/" element={<Reza />} />
+            <Route path="hudha/" element={<Hudha />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </DataProvider>
   </React.StrictMode>
 );

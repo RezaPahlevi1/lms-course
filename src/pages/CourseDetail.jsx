@@ -7,32 +7,35 @@ import { LittleDetail } from "../components/LittleDetail";
 import { Hero } from "../components/Hero";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useData } from "../context/DataContext";
 
 export default function CourseDetail() {
   const { id } = useParams();
-  const [course, setCourse] = useState(null);
-  const [instructor, setInstructor] = useState(null);
-  const [modules, setModules] = useState([]);
+  const { courses, instructors, modules } = useData();
 
-  useEffect(() => {
-    fetch("/db.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const foundCourse = data.courses.find((c) => c.id === id);
-        if (foundCourse) {
-          setCourse(foundCourse);
-          const foundInstructor = data.instructors.find(
-            (i) => i.id === foundCourse.instructorId
-          );
-          setInstructor(foundInstructor);
-          const relatedModules = data.modules.filter(
-            (m) => m.courseId === foundCourse.id
-          );
-          setModules(relatedModules);
-        }
-      })
-      .catch((err) => console.error("Failed to load db.json:", err));
-  }, [id]);
+  // useEffect(() => {
+  //   fetch("/db.json")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const foundCourse = data.courses.find((c) => c.id === id);
+  //       if (foundCourse) {
+  //         setCourse(foundCourse);
+  //         const foundInstructor = data.instructors.find(
+  //           (i) => i.id === foundCourse.instructorId
+  //         );
+  //         setInstructor(foundInstructor);
+  //         const relatedModules = data.modules.filter(
+  //           (m) => m.courseId === foundCourse.id
+  //         );
+  //         setModules(relatedModules);
+  //       }
+  //     })
+  //     .catch((err) => console.error("Failed to load db.json:", err));
+  // }, [id]);
+
+  const course = courses.find((c) => c.id === id);
+  const instructor = instructors.find((i) => i.id === course?.instructorId);
+  const relatedModules = modules.filter((m) => m.courseId === course?.id);
 
   if (!course) return <p className="p-10 text-xl">Loading course...</p>;
 
@@ -52,12 +55,12 @@ export default function CourseDetail() {
             />
             <LittleDetail
               icon={<IoBook />}
-              detail={`${modules.length} Module`}
+              detail={`${relatedModules.length} Module`}
             />
           </div>
         </div>
       </Hero>
-      <Middle modules={modules} />
+      <Middle relatedModules={relatedModules} />
       <CourseDescription course={course} />
     </div>
   );
@@ -72,7 +75,7 @@ function CourseDescription({ course }) {
   );
 }
 
-function Middle({ modules }) {
+function Middle({ relatedModules }) {
   return (
     <div className="p-10 flex flex-col gap-4 bg-gray-300">
       <div className="flex flex-row justify-between">
@@ -84,7 +87,7 @@ function Middle({ modules }) {
         </button>
       </div>
       <ProgressBar />
-      <p>X out of {modules.length} modules finished</p>
+      <p>X out of {relatedModules.length} modules finished</p>
     </div>
   );
 }
