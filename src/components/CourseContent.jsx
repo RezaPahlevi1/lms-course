@@ -1,9 +1,15 @@
-export function CourseContent({ activeModule, setActiveModule, modules }) {
+export function CourseContent({ activeModule, setActiveModule, modules, completedModules, setCompletedModules }) {
   if (!activeModule) return <p>Loading...</p>; // handle saat module belum terisi
 
   const currentIndex = modules.findIndex((m) => m.id === activeModule.id);
+  const totalModules = modules.length;
+  const currentLesson = currentIndex + 1;
 
   const handleNext = () => {
+    if (!completedModules.includes(activeModule.id)) {
+      setCompletedModules((prev) => [...prev, activeModule.id]);
+    }
+
     if (currentIndex < modules.length - 1) {
       setActiveModule(modules[currentIndex + 1]);
     }
@@ -20,7 +26,9 @@ export function CourseContent({ activeModule, setActiveModule, modules }) {
   return (
     <div className="p-15 w-screen">
       <div className="flex justify-between mb-15">
-        <p>Lesson 69 of 420</p>
+        <p>
+          Lesson {currentLesson} of {totalModules}
+        </p>
         <button className="bg-[#A51C30] text-white rounded p-2">EXIT COURSE</button>
       </div>
       <div className="bg-[#293352] text-white p-15 rounded-md">
