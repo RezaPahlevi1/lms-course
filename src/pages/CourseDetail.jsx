@@ -5,7 +5,7 @@ import { IoPerson } from "react-icons/io5";
 import { IoBook } from "react-icons/io5";
 import { LittleDetail } from "../components/LittleDetail";
 import { Hero } from "../components/Hero";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useData } from "../context/DataContext";
 
@@ -32,7 +32,7 @@ export default function CourseDetail() {
   //     })
   //     .catch((err) => console.error("Failed to load db.json:", err));
   // }, [id]);
-
+  const navigate = useNavigate();
   const course = courses.find((c) => c.id === id);
   const instructor = instructors.find((i) => i.id === course?.instructorId);
   const relatedModules = modules.filter((m) => m.courseId === course?.id);
@@ -60,7 +60,7 @@ export default function CourseDetail() {
           </div>
         </div>
       </Hero>
-      <Middle relatedModules={relatedModules} />
+      <Middle navigate={navigate} relatedModules={relatedModules} />
       <CourseDescription course={course} />
     </div>
   );
@@ -75,14 +75,17 @@ function CourseDescription({ course }) {
   );
 }
 
-function Middle({ relatedModules }) {
+function Middle({ relatedModules, navigate }) {
   return (
     <div className="p-10 flex flex-col gap-4 bg-gray-300">
       <div className="flex flex-row justify-between">
         <button className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer">
           On Going
         </button>
-        <button className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer">
+        <button
+          onClick={() => navigate(`/module/${relatedModules[0].id}`)}
+          className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer"
+        >
           Learn Now
         </button>
       </div>
