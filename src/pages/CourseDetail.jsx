@@ -12,26 +12,6 @@ import { useData } from "../context/DataContext";
 export default function CourseDetail() {
   const { id } = useParams();
   const { courses, instructors, modules } = useData();
-
-  // useEffect(() => {
-  //   fetch("/db.json")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const foundCourse = data.courses.find((c) => c.id === id);
-  //       if (foundCourse) {
-  //         setCourse(foundCourse);
-  //         const foundInstructor = data.instructors.find(
-  //           (i) => i.id === foundCourse.instructorId
-  //         );
-  //         setInstructor(foundInstructor);
-  //         const relatedModules = data.modules.filter(
-  //           (m) => m.courseId === foundCourse.id
-  //         );
-  //         setModules(relatedModules);
-  //       }
-  //     })
-  //     .catch((err) => console.error("Failed to load db.json:", err));
-  // }, [id]);
   const navigate = useNavigate();
   const course = courses.find((c) => c.id === id);
   const instructor = instructors.find((i) => i.id === course?.instructorId);
