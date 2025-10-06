@@ -8,6 +8,7 @@ import { LittleDetail } from "../components/LittleDetail";
 import { Hero } from "../components/Hero";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { CourseCard } from "../components/CourseCard";
 
 export default function CourseDetail() {
   const { id } = useParams();
