@@ -40,7 +40,7 @@
       "title": "React untuk Pemula — Dari Dasar sampai Project",
       "slug": "react-untuk-pemula",
       "short_description": "Pelajari dasar React, component, state, props, routing, hingga deploy sederhana.",
-      "description": "<p>Course ini mengajarkan konsep fundamental React melalui project mini: TODO app & mini LMS.</p><ul><li>React components</li><li>State management</li><li>Routing</li><li>Fetch API & testing</li></ul>",
+      "description": "Course ini mengajarkan konsep fundamental React melalui project mini: TODO app & mini LMS. React components State management Routing Fetch API & testing",
       "category": "Frontend",
       "level": "Beginner",
       "language": "id",

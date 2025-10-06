@@ -76,7 +76,6 @@ export default function CourseList() {
                   key={course.id}
                   course={course}
                   instructor={instructor}
-                  // level={level}
                 />
               );
             })
