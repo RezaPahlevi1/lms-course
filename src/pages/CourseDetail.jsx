@@ -6,8 +6,9 @@ import { IoBook } from "react-icons/io5";
 import { LittleDetail } from "../components/LittleDetail";
 import { Hero } from "../components/Hero";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import { useData } from "../context/DataContext";
+import { CourseRating } from "../components/CourseRating";
+import { CourseTag } from "../components/CourseTag";
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -42,6 +43,14 @@ export default function CourseDetail() {
       </Hero>
       <Middle navigate={navigate} relatedModules={relatedModules} />
       <CourseDescription course={course} />
+
+      {/* cara props tag cara 1 */}
+      <CourseTag tags={course.tags} />
+
+      {/* cara props tag cara 2
+      <CourseTag course={course} /> */}
+
+      <CourseRating course={course} />
     </div>
   );
 }
@@ -71,72 +80,6 @@ function Middle({ relatedModules, navigate }) {
       </div>
       <ProgressBar />
       <p>X out of {relatedModules.length} modules finished</p>
-    </div>
-  );
-}
-
-function CourseRating({ rating = 0, enroll_count = 0 }) {
-  // jumlah total bintang
-  const totalStars = 5;
-
-  return (
-    <div className="flex flex-col gap-3 p-10">
-      <h1 className="font-bold text-xl">Ratings</h1>
-      <div className="flex items-center gap-3 text-gray-700 text-sm">
-        {/* Bintang rating */}
-        <div className="flex items-center gap-[2px]">
-          {[...Array(totalStars)].map((_, idx) => {
-            const starValue = idx + 1;
-
-            // Tentukan warna bintang
-            const fillColor =
-              rating >= starValue
-                ? "text-yellow-400" // penuh
-                : rating >= starValue - 0.5
-                ? "text-yellow-200" // setengah
-                : "text-gray-300"; // kosong
-
-            return <FaStar key={idx} className={`${fillColor} text-lg`} />;
-          })}
-        </div>
-
-        {/* Nilai rating */}
-        <span className="font-semibold">{rating.toFixed(1)}</span>
-
-        {/* Garis pemisah */}
-        <div className="w-[1px] h-4 bg-gray-300" />
-
-        {/* Jumlah enrolled */}
-        <p>{enroll_count.toLocaleString()} enrolled</p>
-      </div>
-    </div>
-  );
-}
-
-function CourseTag({ tags = [] }) {
-  // guard: jika tags kosong tampilkan info singkat
-  if (!tags || tags.length === 0) {
-    return (
-      <div className="flex flex-col gap-3 p-10">
-        <h1 className="font-bold text-xl">Tags</h1>
-        <p className="text-sm text-gray-500">No tags available</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex flex-col gap-3 p-10">
-      <h1 className="font-bold text-xl">Tags</h1>
-      <div className="flex flex-wrap gap-3">
-        {tags.map((tag, idx) => (
-          <div
-            key={`${tag}-${idx}`}
-            className="bg-gray-200 px-3 py-1 rounded-full text-sm w-fit"
-          >
-            <p>{tag}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
