@@ -10,6 +10,7 @@ import Instructors from "./pages/Instructors";
 import Rehan from "./pages/Rehan";
 import Reza from "./pages/Reza";
 import Hudha from "./pages/Hudha";
+import { DataProvider } from "./context/DataContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

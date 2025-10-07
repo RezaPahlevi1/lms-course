@@ -62,6 +62,15 @@ export default function CourseDetail() {
       </Hero>
       <Middle navigate={navigate} relatedModules={relatedModules} />
       <CourseDescription course={course} />
+
+      {/* cara props tag cara 1 */}
+      <CourseTag tags={course.tags} />
+
+      {/* cara props tag cara 2
+      <CourseTag course={course} /> */}
+
+      <CourseRating course={course} />
+      <SyllabusCard course={course} />
     </div>
   );
 }
