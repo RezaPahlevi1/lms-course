@@ -32,6 +32,17 @@
         "twitter": "alya_data",
         "linkedin": "alya-nur"
       }
+    },
+    {
+      "id": "ins_04",
+      "name": "Prof. Dr. Lebron James",
+      "title": "Data Scientist, Phsycologist",
+      "bio": "I love baksetBalls",
+      "avatar": "https://example.com/avatars/lebron.jpg",
+      "social": {
+        "twitter": "kingjames",
+        "linkedin": "LebronJames"
+      }
     }
   ],
   "courses": [
