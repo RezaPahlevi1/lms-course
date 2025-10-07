@@ -6,6 +6,8 @@ export function DataProvider({ children }) {
   const [courses, setCourses] = useState([]);
   const [instructors, setInstructors] = useState([]);
   const [modules, setModules] = useState([]);
+  const [users, setUsers] = useState([]);
+  const [enrollments, setEnrollments] = useState([]);
 
   useEffect(() => {
     fetch("/db.json")
@@ -14,12 +16,16 @@ export function DataProvider({ children }) {
         setCourses(data.courses || []);
         setInstructors(data.instructors || []);
         setModules(data.modules || []);
+        setUsers(data.users || []);
+        setEnrollments(data.enrollments || []);
       })
       .catch((err) => console.error("Failed to load db.json:", err));
   }, []);
 
   return (
-    <DataContext.Provider value={{ courses, instructors, modules }}>
+    <DataContext.Provider
+      value={{ courses, instructors, modules, users, enrollments }}
+    >
       {children}
     </DataContext.Provider>
   );

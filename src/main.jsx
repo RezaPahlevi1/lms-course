@@ -6,6 +6,7 @@ import CourseList from "./pages/CourseList";
 import CourseDetail from "./pages/CourseDetail";
 import CourseModules from "./pages/CourseModules";
 import Instructors from "./pages/Instructors";
+import Profile from "./pages/Profile";
 import Rehan from "./pages/Rehan";
 import Reza from "./pages/Reza";
 import Hudha from "./pages/Hudha";
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<CourseList />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="courses/:id" element={<CourseDetail />} />
             <Route path="instructors/" element={<Instructors />} />
             <Route

@@ -305,7 +305,7 @@
       "name": "Miftakhul Hudha",
       "email": "miftakhul@example.com",
       "role": "student",
-      "avatar": "https://example.com/avatars/miftakhul.jpg"
+      "avatar": "https://res.cloudinary.com/hudha/image/upload/v1759825577/image_1_i9tyv6.jpg"
     },
     {
       "id": "user_instructor",
