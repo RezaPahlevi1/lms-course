@@ -33,7 +33,7 @@ export function CourseContent({ activeModule, setActiveModule, modules, complete
         <p>
           Lesson {currentLesson} of {totalModules}
         </p>
-        <button className="bg-[#A51C30] text-white rounded p-2" onClick={() => navigate(`/courses/${courseId}`)}>
+        <button className="bg-[#A51C30] text-white rounded p-2 hover:bg-[#3a4662]" onClick={() => navigate(`/courses/${courseId}`)}>
           EXIT COURSE
         </button>
       </div>
@@ -44,10 +44,10 @@ export function CourseContent({ activeModule, setActiveModule, modules, complete
         {activeModule.type === "project" && <p>{activeModule.content.instructions}</p>}
       </div>
       <div className="flex justify-between mt-15">
-        <button className="bg-[#A51C30] text-white rounded p-2" onClick={handlePrevious}>
+        <button className="bg-[#A51C30] text-white rounded p-2 hover:bg-[#3a4662]" onClick={handlePrevious}>
           Previous
         </button>
-        <button className="bg-[#A51C30] text-white rounded p-2" onClick={handleNext}>
+        <button className="bg-[#A51C30] text-white rounded p-2 hover:bg-[#3a4662]" onClick={handleNext}>
           Next
         </button>
       </div>
