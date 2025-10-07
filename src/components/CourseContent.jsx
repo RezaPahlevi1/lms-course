@@ -1,4 +1,8 @@
+import { useNavigate, useParams } from "react-router-dom";
+
 export function CourseContent({ activeModule, setActiveModule, modules, completedModules, setCompletedModules }) {
+  const navigate = useNavigate();
+  const { courseId } = useParams();
   if (!activeModule) return <p>Loading...</p>; // handle saat module belum terisi
 
   const currentIndex = modules.findIndex((m) => m.id === activeModule.id);
@@ -29,7 +33,9 @@ export function CourseContent({ activeModule, setActiveModule, modules, complete
         <p>
           Lesson {currentLesson} of {totalModules}
         </p>
-        <button className="bg-[#A51C30] text-white rounded p-2">EXIT COURSE</button>
+        <button className="bg-[#A51C30] text-white rounded p-2" onClick={() => navigate(`/courses/${courseId}`)}>
+          EXIT COURSE
+        </button>
       </div>
       <div className="bg-[#293352] text-white p-15 rounded-md">
         <h1 className="text-center mb-20">{activeModule.title}</h1>
