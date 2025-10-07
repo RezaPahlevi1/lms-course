@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useData } from "../context/DataContext";
 import { CourseRating } from "../components/CourseRating";
 import { CourseTag } from "../components/CourseTag";
+import { SyllabusCard } from "../components/SyllabusCard";
 
 export default function CourseDetail() {
   const { id } = useParams();
@@ -51,6 +52,7 @@ export default function CourseDetail() {
       <CourseTag course={course} /> */}
 
       <CourseRating course={course} />
+      <SyllabusCard course={course} />
     </div>
   );
 }

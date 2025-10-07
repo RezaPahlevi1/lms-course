@@ -67,7 +67,8 @@
             "JSX & Component",
             "Vite + Tailwind setup",
             "First project: Todo App"
-          ]
+          ],
+          "duration_hours": 3
         },
         {
           "week": 2,
@@ -76,7 +77,8 @@
             "State & Props",
             "React Router dasar",
             "Project: Multi-page site"
-          ]
+          ],
+          "duration_hours": 2
         },
         {
           "week": 3,
@@ -85,7 +87,18 @@
             "Fetch API & React Query",
             "Form validation",
             "Deploy to Vercel"
-          ]
+          ],
+          "duration_hours": 4
+        },
+        {
+          "week": 4,
+          "title": "Capstone Project: Mini LMS",
+          "items": [
+            "Project Demonstration",
+            "Presentasi project",
+            "Q&A session"
+          ],
+          "duration_hours": 3
         }
       ],
       "learning_outcomes": [
