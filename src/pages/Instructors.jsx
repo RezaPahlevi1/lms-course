@@ -1,7 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useData } from "../context/DataContext";
 
 function Instructors() {
+  const { id } = useParams();
   const { instructors } = useData();
   const navigate = useNavigate();
 

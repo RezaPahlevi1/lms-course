@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Hero } from "../components/Hero";
 import { CourseCard } from "../components/CourseCard";
 import { SearchCard } from "../components/SearchCard";
+import { useData } from "../context/DataContext";
 
 export default function CourseList() {
-  const [courses, setCourses] = useState([]);
-  const [instructors, setInstructors] = useState([]);
+  const { instructors, courses } = useData();
 
   // state untuk search & filter
   const [search, setSearch] = useState("");
@@ -14,18 +14,6 @@ export default function CourseList() {
     instructorId: "", // matches course.instructorId
     level: "", // matches course.level
   });
-
-  useEffect(() => {
-    fetch("/db.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setCourses(data.courses || []);
-        setInstructors(data.instructors || []);
-      })
-      .catch((err) => {
-        console.error("Failed to load db.json:", err);
-      });
-  }, []);
 
   // Filtered courses berdasarkan search & filter
   const filteredCourses = courses.filter((course) => {
