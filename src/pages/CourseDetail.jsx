@@ -27,22 +27,13 @@ export default function CourseDetail() {
         <div className="w-full text-white bg-linear-to-r from-black to-[#293352] flex flex-col p-12">
           <h1 className="text-6xl">{course.title}</h1>
           <div className="flex flex-row gap-5 pt-20">
-            <LittleDetail
-              icon={<FaClock />}
-              detail={`About ${course.duration_hours} Hours`}
-            />
-            <LittleDetail
-              icon={<IoPerson />}
-              detail={instructor ? instructor.name : "Unknown Instructor"}
-            />
-            <LittleDetail
-              icon={<IoBook />}
-              detail={`${relatedModules.length} Module`}
-            />
+            <LittleDetail icon={<FaClock />} detail={`About ${course.duration_hours} Hours`} />
+            <LittleDetail icon={<IoPerson />} detail={instructor ? instructor.name : "Unknown Instructor"} />
+            <LittleDetail icon={<IoBook />} detail={`${relatedModules.length} Module`} />
           </div>
         </div>
       </Hero>
-      <Middle navigate={navigate} relatedModules={relatedModules} />
+      <Middle navigate={navigate} relatedModules={relatedModules} courseId={course.id} />
       <CourseDescription course={course} />
 
       {/* cara props tag cara 1 */}
@@ -66,17 +57,12 @@ function CourseDescription({ course }) {
   );
 }
 
-function Middle({ relatedModules, navigate }) {
+function Middle({ relatedModules, navigate, courseId }) {
   return (
     <div className="p-10 flex flex-col gap-4 bg-gray-300">
       <div className="flex flex-row justify-between">
-        <button className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer">
-          On Going
-        </button>
-        <button
-          onClick={() => navigate(`/module/${relatedModules[0].id}`)}
-          className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer"
-        >
+        <button className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer">On Going</button>
+        <button onClick={() => navigate(`/courses/${courseId}/modules`)} className="p-2 px-8 rounded-xl bg-[#293352] text-white cursor-pointer">
           Learn Now
         </button>
       </div>
