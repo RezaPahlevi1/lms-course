@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <Route index element={<CourseList />} />
             <Route path="courses/:id" element={<CourseDetail />} />
             <Route path="instructors/" element={<Instructors />} />
-            <Route path="modules/" element={<CourseModules />} />
+            <Route path="courses/:courseId/modules" element={<CourseModules />} />
             <Route path="rehan/" element={<Rehan />} />
             <Route path="reza/" element={<Reza />} />
             <Route path="hudha/" element={<Hudha />} />
