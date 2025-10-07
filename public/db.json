@@ -5,7 +5,7 @@
       "name": "Dr. Siti Aisyah",
       "title": "Senior Lecturer - Computer Science",
       "bio": "Pengajar UX & Frontend dengan pengalaman 10+ tahun.",
-      "avatar": "https://example.com/avatars/siti.jpg",
+      "avatar": "https://res.cloudinary.com/hudha/image/upload/v1759825577/image_1_i9tyv6.jpg",
       "social": {
         "twitter": "siti_ux",
         "linkedin": "siti-aisyah"
@@ -16,7 +16,7 @@
       "name": "Budi Prakoso",
       "title": "Fullstack Engineer",
       "bio": "Spesialis React & Node.js, suka membangun aplikasi produk nyata.",
-      "avatar": "https://example.com/avatars/budi.jpg",
+      "avatar": "https://res.cloudinary.com/hudha/image/upload/v1759825577/image_1_i9tyv6.jpg",
       "social": {
         "twitter": "budiprakoso",
         "linkedin": "budi-prakoso"
@@ -27,7 +27,7 @@
       "name": "Alya Nur",
       "title": "Data Scientist",
       "bio": "Penggemar data visualisasi, mengajar cara membuat dashboard interaktif.",
-      "avatar": "https://example.com/avatars/alya.jpg",
+      "avatar": "https://res.cloudinary.com/hudha/image/upload/v1759825577/image_1_i9tyv6.jpg",
       "social": {
         "twitter": "alya_data",
         "linkedin": "alya-nur"
@@ -38,7 +38,7 @@
       "name": "Prof. Dr. Lebron James",
       "title": "Data Scientist, Phsycologist",
       "bio": "I love baksetBalls",
-      "avatar": "https://example.com/avatars/lebron.jpg",
+      "avatar": "https://res.cloudinary.com/hudha/image/upload/v1759825577/image_1_i9tyv6.jpg",
       "social": {
         "twitter": "kingjames",
         "linkedin": "LebronJames"
