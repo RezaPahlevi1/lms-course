@@ -40,7 +40,7 @@
       "title": "React untuk Pemula — Dari Dasar sampai Project",
       "slug": "react-untuk-pemula",
       "short_description": "Pelajari dasar React, component, state, props, routing, hingga deploy sederhana.",
-      "description": "<p>Course ini mengajarkan konsep fundamental React melalui project mini: TODO app & mini LMS.</p><ul><li>React components</li><li>State management</li><li>Routing</li><li>Fetch API & testing</li></ul>",
+      "description": "Course ini mengajarkan konsep fundamental React melalui project mini: TODO app & mini LMS. React components State management Routing Fetch API & testing",
       "category": "Frontend",
       "level": "Beginner",
       "language": "id",
@@ -67,7 +67,8 @@
             "JSX & Component",
             "Vite + Tailwind setup",
             "First project: Todo App"
-          ]
+          ],
+          "duration_hours": 3
         },
         {
           "week": 2,
@@ -76,7 +77,8 @@
             "State & Props",
             "React Router dasar",
             "Project: Multi-page site"
-          ]
+          ],
+          "duration_hours": 2
         },
         {
           "week": 3,
@@ -85,7 +87,18 @@
             "Fetch API & React Query",
             "Form validation",
             "Deploy to Vercel"
-          ]
+          ],
+          "duration_hours": 4
+        },
+        {
+          "week": 4,
+          "title": "Capstone Project: Mini LMS",
+          "items": [
+            "Project Demonstration",
+            "Presentasi project",
+            "Q&A session"
+          ],
+          "duration_hours": 3
         }
       ],
       "learning_outcomes": [

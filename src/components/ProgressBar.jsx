@@ -1,4 +1,4 @@
-export function ProgressBar({ percent = 0 }) {
+export function ProgressBar({ percent = 25 }) {
   return (
     <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
       <div

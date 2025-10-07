@@ -1,4 +1,4 @@
-export function SearchBar() {
+export function SearchBar({ value, onChange }) {
   return (
     <div className="flex items-center">
       <div className="flex items-center border border-gray-300 rounded w-full bg-white text-gray-700">
@@ -16,6 +16,8 @@ export function SearchBar() {
           />
         </svg>
         <input
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
           className="w-full px-3 py-2 focus:outline-none"
           placeholder="Search learning"
           aria-label="search"
